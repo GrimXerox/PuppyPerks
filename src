@@ -1,0 +1,68 @@
+import React from "react";
+
+const products = [
+  {
+    name: "Smart Feeder",
+    description: "Automatically feed your pet on a schedule.",
+    price: "$129.99",
+    image: "https://images.unsplash.com/photo-1583337130417-3346a1d3a5d4",
+    link: "#",
+  },
+  {
+    name: "Pet GPS Tracker",
+    description: "Track your pet’s location in real time.",
+    price: "$59.99",
+    image: "https://images.unsplash.com/photo-1558788353-f76d92427f16",
+    link: "#",
+  },
+  {
+    name: "Interactive Ball",
+    description: "Keep your pet active and entertained.",
+    price: "$39.99",
+    image: "https://images.unsplash.com/photo-1601758173922-8b2c0c3e6d2c",
+    link: "#",
+  },
+];
+
+export default function App() {
+  return (
+    <div className="min-h-screen bg-orange-50 text-gray-800">
+      <header className="bg-orange-500 text-white py-6 text-center shadow-md">
+        <h1 className="text-3xl font-bold">🐾 PuppyPerks</h1>
+        <p className="text-sm mt-1">Smart Tech for Your Pets</p>
+      </header>
+      <main className="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        {products.map((product) => (
+          <div key={product.name} className="bg-white rounded-2xl shadow p-4 hover:scale-105 transition-transform">
+            <img src={product.image} alt={product.name} className="rounded-xl h-40 w-full object-cover" />
+            <h2 className="text-xl font-semibold mt-3">{product.name}</h2>
+            <p className="text-sm mt-1">{product.description}</p>
+            <p className="text-lg font-bold text-orange-600 mt-2">{product.price}</p>
+            <a href={product.link} className="block mt-2 text-center text-white bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded-lg">
+              Buy Now
+            </a>
+          </div>
+        ))}
+      </main>
+      <footer className="text-center py-4 text-sm text-gray-500">
+        &copy; 2025 PuppyPerks. All rights reserved.
+      </footer>
+    </div>
+  );
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import "./index.css";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
